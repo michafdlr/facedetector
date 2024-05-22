@@ -1,0 +1,24 @@
+.bounding-box {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  cursor: pointer;
+  border: 1px solid;
+}
+
+.imagebox {
+  margin-top: 1rem;
+  justify-content: center;
+  /* border: 3px solid red;*/
+  border-radius: 20px;
+}
+
+.image {
+  max-width: 500px;
+  /* max-height: auto; */
+  border-radius: 20px;
+  /* display: flex;
+  flex-wrap: wrap;
+  position: absolute; */
+}
