@@ -1,11 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react'
 import Navigation from './components/navigation/Navigation'
 import Logo from './components/logo/Logo'
 import LinkInput from './components/linkInput/LinkInput'
 import Rank from './components/rank/Rank'
 import ImageDetector from './components/ImageDetector/ImageDetector'
+import Login from './components/Login/Login'
 import './App.css'//
 import ParticlesBg from 'particles-bg'
+// Bootstrap CSS
+import "bootstrap/dist/css/bootstrap.min.css";
+// Bootstrap Bundle JS
+import "bootstrap/dist/js/bootstrap.bundle.min";
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 
@@ -20,28 +26,18 @@ function App() {
   const MODEL_VERSION_ID = '6dc7e46bc9124c5c8824be4822abe105';
 
 
+
   const [url, setUrl] = useState('')
   const [boxes, setBoxes] = useState([])
-
-  // const calculateFacePositions = (box) => {
-  //   const topRow = box[0]
-  //   const leftCol = box[1]
-  //   const bottomRow = box[2]
-  //   const rightCol = box[3]
-  //   const image = document.getElementById("inputimage")
-  //   const width = Number(image.width)
-  //   const height = Number(image.height)
-  //   const startX = leftCol*width
-  //   const startY = topRow*height
-  //   const endX = width - rightCol*width
-  //   const endY = height - bottomRow*height
-  //   console.log(width, height)
-  //   return [startY, startX, endY, endX]
-  // }
+  const [route, setRoute] = useState('login')
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
     setUrl(e.target[0].value)
+  }
+
+  const handleOnChangeRoute = () => {
+    setRoute("home")
   }
 
   useEffect(() => {
@@ -102,9 +98,14 @@ function App() {
     <>
         <Navigation />
         <Logo />
-        <Rank />
-        <LinkInput onSubmit={handleOnSubmit} />
-        <ImageDetector url={url} boxes={boxes}/>
+        {
+          route === 'login' ? <Login onChange={handleOnChangeRoute}/> :
+          <>
+            <Rank />
+            <LinkInput onSubmit={handleOnSubmit} />
+            <ImageDetector url={url} boxes={boxes}/>
+          </>
+        }
 
         <ParticlesBg type="cobweb" color="#005eff" num={300}  bg={true} />
     </>

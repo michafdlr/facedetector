@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
     "konva": "^9.3.9",
     "particles-bg": "^2.5.5",
     "process": "^0.11.10",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
     "react-konva": "^18.2.10",
     "react-parallax-tilt": "^1.7.226",
