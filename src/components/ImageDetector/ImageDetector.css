@@ -1,24 +1,29 @@
 .bounding-box {
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   display: flex;
   justify-content: center;
   position: absolute;
   cursor: pointer;
-  border: 1px solid;
+  border: 2px solid;
+  /* margin-left: auto;
+  margin-right: auto; */
+  border-color: rgba(0, 255, 187, 1);
+  max-width: 50%;
+
 }
 
-.imagebox {
+/* .imagebox {
   margin-top: 1rem;
   justify-content: center;
-  /* border: 3px solid red;*/
+  /* border: 3px solid red;
   border-radius: 20px;
 }
 
 .image {
   max-width: 500px;
-  /* max-height: auto; */
+  /* max-height: auto;
   border-radius: 20px;
   /* display: flex;
   flex-wrap: wrap;
-  position: absolute; */
-}
+  position: absolute;
+} */

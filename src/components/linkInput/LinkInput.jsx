@@ -6,8 +6,8 @@ const LinkInput = ({onSubmit}) => {
         Put in the url to an image and detect faces
       </p>
       <div className="center">
-        <form onSubmit={onSubmit} style={{width:'100%', height:'30px', textAlign: 'left', marginRight: '20px'}}>
-          <input style={{width:'70%', height:'30px', textAlign: 'left', marginRight: '20px', marginLeft: '20px'}} type="text" name="image_url"/>
+        <form onSubmit={onSubmit} style={{width:'100%', height:'30px', textAlign: 'left', marginRight: '1%'}}>
+          <input style={{width:'60%', height:'30px', textAlign: 'left', marginRight: '1%', marginLeft: '1%'}} type="text" name="image_url"/>
           <button>
             Detect
           </button>

@@ -84,13 +84,13 @@ function App() {
                 const bottomRow = boundingBox.bottom_row.toFixed(3);
                 const rightCol = boundingBox.right_col.toFixed(3);
                 locBoxes.push([topRow*100, leftCol*100, 100 - 100*bottomRow, 100-100*rightCol])
-                region.data.concepts.forEach(concept => {
-                    // Accessing and rounding the concept value
-                    const name = concept.name;
-                    const value = concept.value.toFixed(4);
-                    console.log(`${name}: ${value} BBox: ${topRow}, ${leftCol}, ${bottomRow}, ${rightCol}`);
+                // region.data.concepts.forEach(concept => {
+                //     // Accessing and rounding the concept value
+                //     const name = concept.name;
+                //     const value = concept.value.toFixed(4);
+                //     console.log(`${name}: ${value} BBox: ${topRow}, ${leftCol}, ${bottomRow}, ${rightCol}`);
 
-                });
+                // });
             })
             setBoxes(locBoxes);
         })
@@ -100,8 +100,8 @@ function App() {
 
   return (
     <>
-        <Logo />
         <Navigation />
+        <Logo />
         <Rank />
         <LinkInput onSubmit={handleOnSubmit} />
         <ImageDetector url={url} boxes={boxes}/>

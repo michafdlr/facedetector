@@ -11,6 +11,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: block;
+
 }
 
 /* button {
@@ -43,10 +45,11 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  transition: all 0.5s;
+  transition: all 0.25s;
   transform: scale(1.02);
   border-color: red;
   cursor: pointer;
+  color: red;
 }
 button:focus,
 button:focus-visible {
