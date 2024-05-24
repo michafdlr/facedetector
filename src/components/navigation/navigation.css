@@ -3,10 +3,12 @@
   font-size: larger;
   text-underline-offset: 5px;
   font-weight: bold;
+  padding-bottom: 1rem;
 }
 
-.navigation:hover {
+.psign:hover {
   color: rgb(0, 255, 187);
+  text-decoration: underline;
   cursor: pointer;
   text-shadow: 2px 2px 1px black;
 }

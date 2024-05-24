@@ -12,6 +12,7 @@ import ParticlesBg from 'particles-bg'
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import Register from './components/Register/Register';
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 
@@ -30,14 +31,21 @@ function App() {
   const [url, setUrl] = useState('')
   const [boxes, setBoxes] = useState([])
   const [route, setRoute] = useState('login')
+  const [isSignedIn, setIsSignedIn] = useState(false)
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
     setUrl(e.target[0].value)
   }
 
-  const handleOnChangeRoute = () => {
-    setRoute("home")
+  const handleOnChangeRoute = (input) => {
+    setRoute(input)
+    setUrl('')
+    if (input === 'home') {
+      setIsSignedIn(true)
+    } else if (input === 'login') {
+      setIsSignedIn(false)
+    }
   }
 
   useEffect(() => {
@@ -96,15 +104,19 @@ function App() {
 
   return (
     <>
-        <Navigation />
+        <Navigation onChangeRoute={handleOnChangeRoute} signedIn={isSignedIn}/>
         <Logo />
         {
-          route === 'login' ? <Login onChange={handleOnChangeRoute}/> :
+          route === 'home' ?
           <>
             <Rank />
             <LinkInput onSubmit={handleOnSubmit} />
             <ImageDetector url={url} boxes={boxes}/>
           </>
+        : route === 'login' ?
+          <Login onChangeRoute={handleOnChangeRoute}/>
+        :
+          <Register onChangeRoute={handleOnChangeRoute}/>
         }
 
         <ParticlesBg type="cobweb" color="#005eff" num={300}  bg={true} />

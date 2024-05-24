@@ -19,6 +19,7 @@ body {
   font-family: sans-serif, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.2;
   font-weight: 400;
+  padding: 1rem;
 
   color-scheme: light dark;
   color: black;
