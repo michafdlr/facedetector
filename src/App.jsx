@@ -35,6 +35,7 @@ function App() {
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
+    setBoxes([])
     setUrl(e.target[0].value)
   }
 
