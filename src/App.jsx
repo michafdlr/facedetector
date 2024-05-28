@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useLayoutEffect } from 'react'
 import Navigation from './components/navigation/Navigation'
 import Logo from './components/logo/Logo'
 import LinkInput from './components/linkInput/LinkInput'
@@ -48,6 +48,12 @@ function App() {
       setIsSignedIn(false)
     }
   }
+
+  useLayoutEffect(() => {
+    fetch("http://localhost:8080")
+      .then(response => response.json())
+      .then(console.log)
+  }, [])
 
   useEffect(() => {
     if (url.length != 0) {
