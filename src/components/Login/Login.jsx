@@ -23,12 +23,16 @@ const Login = (props) => {
         password: password
       })
     })
-      .then(response => response.status)
-      .then((resp) => {
-        if (resp === 200) {
-          return props.onChangeRoute("home")
+      .then(response => response.json())
+      .then((user) => {
+        if (user.answer === 'invalid') {
+          console.log("Not valid")
+          props.onChangeRoute("login")
+        } else {
+          props.onLogin(user)
+          console.log(user)
+          props.onChangeRoute("home")
         }
-        console.log("Not valid")
       })
   }
 

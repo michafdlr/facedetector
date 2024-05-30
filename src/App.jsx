@@ -32,11 +32,27 @@ function App() {
   const [boxes, setBoxes] = useState([])
   const [route, setRoute] = useState('login')
   const [isSignedIn, setIsSignedIn] = useState(false)
+  const [user, setUser] = useState({
+    id: '',
+    name: '',
+    email: '',
+    counter: 0,
+    joined: ''
+  })
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
     setBoxes([])
     setUrl(e.target[0].value)
+    fetch("http://localhost:8080/image", {
+      "method": "put",
+      "headers": {"Content-Type": "application/json"},
+      "body": JSON.stringify({
+        id: user.id
+      })
+    })
+      .then(response => response.json())
+      .then(counter => Object.assign(user, {"counter": counter}))
   }
 
   const handleOnChangeRoute = (input) => {
@@ -47,6 +63,16 @@ function App() {
     } else if (input === 'login') {
       setIsSignedIn(false)
     }
+  }
+
+  const handleUserRegistration = (data) => {
+    setUser({
+      id: data.id,
+      name: data.name,
+      email: data.email,
+      counter: data.counter,
+      joined: data.joined
+    })
   }
 
   useLayoutEffect(() => {
@@ -116,14 +142,14 @@ function App() {
         {
           route === 'home' ?
           <>
-            <Rank />
+            <Rank name={user.name} counter={user.counter}/>
             <LinkInput onSubmit={handleOnSubmit} />
             <ImageDetector url={url} boxes={boxes}/>
           </>
         : route === 'login' ?
-          <Login onChangeRoute={handleOnChangeRoute}/>
+          <Login onLogin={handleUserRegistration} onChangeRoute={handleOnChangeRoute}/>
         :
-          <Register onChangeRoute={handleOnChangeRoute}/>
+          <Register onChangeRoute={handleOnChangeRoute} onRegister={handleUserRegistration}/>
         }
 
         <ParticlesBg type="cobweb" color="#005eff" num={300}  bg={true} />

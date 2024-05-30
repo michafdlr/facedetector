@@ -35,11 +35,12 @@ const Register = (props) => {
           password: password
         })
       })
-        .then(response => response.status)
-        .then(resp => {
-          if (resp===200) {
-            props.onChangeRoute("home")
-            console.log("Registration successful")
+        .then(response => response.json())
+        .then(user => {
+          if (user) {
+            props.onRegister(user)
+            console.log('Registration successful for ', user)
+            return props.onChangeRoute("home")
           }
         })
     } else if (name.length === 0) {

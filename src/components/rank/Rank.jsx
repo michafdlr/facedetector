@@ -1,11 +1,12 @@
-const Rank = () => {
+/* eslint-disable react/prop-types */
+const Rank = ({ name, counter}) => {
   return (
     <div className="rank">
       <h2>
-      User, your current rank is
+      {name}, the number of pictures you checked is:
       </h2>
       <h1>
-        #1
+        {counter}
       </h1>
     </div>
   )
