@@ -25,7 +25,7 @@ const Login = (props) => {
     })
       .then(response => response.json())
       .then((user) => {
-        if (user.answer === 'invalid') {
+        if (!user.email) {
           console.log("Not valid")
           props.onChangeRoute("login")
         } else {
