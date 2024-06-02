@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Container, Form } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { useState } from 'react';
 
 const Login = (props) => {
@@ -40,6 +40,7 @@ const Login = (props) => {
     <Container>
       <div>
         <h1>Sign In</h1>
+        <br />
         <div className="mb-3">
           <label htmlFor="email1" className="form-label">Email address</label>
           <input type="email" className="form-control" id="email1" aria-describedby="emailHelp" onChange={handlerEmailChange}/>
@@ -49,12 +50,16 @@ const Login = (props) => {
           <label htmlFor="inputPassword1" className="form-label">Password</label>
           <input type="password" className="form-control" id="inputPassword1"  onChange={handlerPasswordChange}/>
         </div>
-        <div className="mb-3 form-check">
+        {/* <div className="mb-3 form-check">
           <input type="checkbox" className="form-check-input" id="exampleCheck1" />
           <label className="form-check-label" htmlFor="exampleCheck1">Keep me logged in</label>
-        </div>
+        </div> */}
         <button type="submit" className="btn btn-primary" onClick={onSubmitSignIn}>Submit</button>
         <button type="submit" className="btn btn-primary ms-1" onClick={() => props.onChangeRoute('register')}>Register</button>
+        <br />
+        <p className='btn btn-link' style={{color: 'black'}} onClick={() => props.onChangeRoute('reset')}>
+          Forgot password
+        </p>
       </div>
     </Container>
   );

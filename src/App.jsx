@@ -6,6 +6,7 @@ import LinkInput from './components/linkInput/LinkInput'
 import Rank from './components/rank/Rank'
 import ImageDetector from './components/ImageDetector/ImageDetector'
 import Login from './components/Login/Login'
+import ResetPassword from './components/reset/ResetPassword'
 import './App.css'//
 import ParticlesBg from 'particles-bg'
 // Bootstrap CSS
@@ -148,6 +149,9 @@ function App() {
           </>
         : route === 'login' ?
           <Login onLogin={handleUserRegistration} onChangeRoute={handleOnChangeRoute}/>
+        :
+          route === 'reset' ?
+          <ResetPassword onChangeRoute={handleOnChangeRoute} onReset={handleUserRegistration}/>
         :
           <Register onChangeRoute={handleOnChangeRoute} onRegister={handleUserRegistration}/>
         }

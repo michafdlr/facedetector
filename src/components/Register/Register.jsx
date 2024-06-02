@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Container, Form } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { useState } from 'react';
 
 const Register = (props) => {
@@ -75,10 +75,10 @@ const Register = (props) => {
           <label htmlFor="exampleInputPassword1" className="form-label">Repeat Password</label>
           <input type="password" className="form-control" id="validatePassword1" onChange={handlerPasswordRepeatChange}/>
         </div>
-        <div className="mb-3 form-check">
+        {/* <div className="mb-3 form-check">
           <input type="checkbox" className="form-check-input" id="exampleCheck1" />
           <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-        </div>
+        </div> */}
         <button type="submit" className="btn btn-primary" onClick={onSubmit}>Submit</button>
       </div>
     </Container>
