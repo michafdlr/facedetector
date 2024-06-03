@@ -66,6 +66,8 @@ function App() {
     if (input === 'home') {
       setIsSignedIn(true)
     } else if (input === 'login') {
+      setUrl('')
+      prevUrlRef.current = ''
       setUser(initialUser)
       setIsSignedIn(false)
     }
@@ -136,27 +138,6 @@ function App() {
         prevUrlRef.current = url;
     }
   }, [url])
-
-  //   fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/versions/" + MODEL_VERSION_ID + "/outputs", requestOptions)
-  //       .then(response => response.json())
-  //       .then(result => {
-  //           const regions = result.outputs[0].data.regions;
-  //           const locBoxes = [];
-  //           regions.forEach(region => {
-  //               // Accessing and rounding the bounding box values
-  //               const boundingBox = region.region_info.bounding_box;
-  //               const topRow = boundingBox.top_row.toFixed(3);
-  //               const leftCol = boundingBox.left_col.toFixed(3);
-  //               const bottomRow = boundingBox.bottom_row.toFixed(3);
-  //               const rightCol = boundingBox.right_col.toFixed(3);
-  //               locBoxes.push([topRow*100, leftCol*100, 100 - 100*bottomRow, 100-100*rightCol])
-  //           })
-  //           setBoxes(locBoxes);
-  //       })
-  //       .catch(error => console.log('error', error));
-  //       prevUrlRef.current = url;
-  //   }
-  // }, [url])
 
   return (
     <>
